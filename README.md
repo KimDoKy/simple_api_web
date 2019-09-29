@@ -2,6 +2,8 @@
 
 > buzzni_api_front
 
+![](./sample.png)
+
 ## Build Setup
 
 ``` bash
