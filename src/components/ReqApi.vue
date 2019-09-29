@@ -3,6 +3,9 @@
     <p>token: {{token}}</p>
 
     <hr>
+    <h7>사용법</h7>
+    <p> 아래 Google Login을 진행하여 JWT을 발급받고, 발급받은 JWT를 입력하고 요청 버튼을 클릭하면 하단에 결과가 출력됩니다.</p>
+    <hr>
 
     <h4>Google Login</h4>
     <a href="https://buzzni.czarcie.shop/login/" target="_blank">Google</a>
@@ -10,7 +13,8 @@
 
 
 
-    <input type="text" v-model="token">
+    <h5>여기에 토큰을 입력하세요.<input type="text" v-model="token"></h5>
+    <hr>
 
     <h4>Validate JWT</h4>
 
@@ -29,6 +33,8 @@
    <button type="button" @click.prevent="refresh(token)">refresh</button>
 
    <hr>
+   <h4>result</h4>
+    {{ data }}
   </div>
 
 </template>
@@ -39,21 +45,21 @@ import {reqApi} from '../api'
 export default {
   data() {
     return {
-      token: 'test token'
+      token: 'input token',
+      data: 'sample data'
     }
   },
   methods: {
     validate(token) {
-      console.log(token)
-      reqApi.validate(token)
-        .then(data =>
-        console.log(data))
+      reqApi.validate('/validate/?token='+token)
+        .then(result =>
+        this.data = result
+      )
     },
     refresh(token) {
-      console.log(token)
       reqApi.refresh(token)
-        .then(data =>
-        console.log(data))
+        .then(result =>
+        this.data = result)
     }
   }
 }

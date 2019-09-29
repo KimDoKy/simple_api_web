@@ -7,7 +7,6 @@
     <h5> request url: https://buzzni.czarcie.shop</h5>
     <div>
       <ReqApi />
-      <Result />
     </div>
   </div>
 </template>
@@ -15,11 +14,10 @@
 <script>
 import Vue from 'vue'
 import ReqApi from './components/ReqApi.vue'
-import Result from './components/Result.vue'
 
 export default {
   name: 'app',
-  components: { ReqApi, Result }
+  components: { ReqApi }
 }
 </script>
 

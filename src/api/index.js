@@ -7,16 +7,14 @@ const request = (method, url, data) => {
   return axios({
     method,
     url: DOMAIN + url,
-    data
+    data,
   }).then(result => result.data)
-    .catch(result => {
-      const {status} = result.response
-    })
 }
 
 export const reqApi = {
-  validate(token) {
-    return request('get', '/validate/', {token:token})
+  validate(url) {
+    console.log(url)
+    return request('get', url )
   },
   refresh(token) {
     return request('post', '/token/refresh/', {
