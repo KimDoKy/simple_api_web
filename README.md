@@ -1,8 +1,4 @@
-# buzzni_front
-
-> buzzni_api_front
-
-![](./sample.png)
+# simple_api_front
 
 ## Build Setup
 
